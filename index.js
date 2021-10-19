@@ -7,7 +7,7 @@ const app = express();
 
 const newspapers = [
     {
-        names: 'thetimes',
+        name: 'thetimes',
         address: 'https://www.thetimes.co.uk/environment/climate-change',
         base: " "
     
@@ -18,7 +18,7 @@ const newspapers = [
         base: " "
     },
     {
-        names: 'telegraph',
+        name: 'telegraph',
         address: 'https://www.telegraph.co.uk/climate-change',
         base: "https://www.telegraph.co.uk"
     }, 
@@ -62,7 +62,7 @@ app.get('/news/:newspaperId', (req, res) => {
          .then((response) => {
              const html = response.data
              const $ = cheerio.load(html)
-            const specificArticles = []
+             const specificArticles = []
 
             $('a:contains("climate")', html).each(function (){
                 const title = $(this).text()
